@@ -24,6 +24,7 @@ if ( ! defined( 'DS' ) ) {
 
 require_once PLUGIN_DIR . 'includes/class.init.php';
 require_once PLUGIN_DIR . 'includes/class.view.php';
+require_once PLUGIN_DIR . 'includes/class.maintenance.php';
 require_once PLUGIN_DIR . 'includes/class.render.php';
 require_once PLUGIN_DIR . 'includes/class.template.php';
 require_once PLUGIN_DIR . 'includes/class.WP_Bootstrap_Navwalker.php';
