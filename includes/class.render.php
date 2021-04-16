@@ -15,7 +15,7 @@ class Render
 
     private function create_link()
     {
-        $link =  'https://documentation.jsdizajner.com/books/' . strtolower($this->docBook) . '/page/' . str_replace("_", "-", $this->docPage);
+        $link =  JSD_Config::$plugin['docs'] . '/books/' . strtolower($this->docBook) . '/page/' . str_replace("_", "-", $this->docPage);
         $error = '<a href="' . $link . '" target="_blank"><small>Error #</small></a>';
         return $error;
     }
