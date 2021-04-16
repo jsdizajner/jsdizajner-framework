@@ -18,7 +18,7 @@ define('THEME_TEXT_DOMAIN', 'jsdizajner');
  class JSD_Config
  {
 	
-	public static $plugin = [
+	public static $info = [
 		'name'		=> 'JSDIZAJNER Framework',
 		'slug' 		=> 'jsdizajner-framework',
 		'version'	=> '1.0.0',
@@ -68,3 +68,4 @@ define('THEME_TEXT_DOMAIN', 'jsdizajner');
 
  }
 
+new JSD_Config;

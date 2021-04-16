@@ -17,9 +17,9 @@ class UpdateAPI
     {
         require PLUGIN_DIR . 'plugin-update-checker/plugin-update-checker.php';
         $MyUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-            JSD_Config::$plugin['update'] . '?action=get_metadata&slug=' . JSD_Config::$plugin['slug'], //Metadata URL.
-            JSD_Config::$plugin['file'], //Full path to the main plugin file.
-            JSD_Config::$plugin['slug'] //Plugin slug. Usually it's the same as the name of the directory.
+            JSD_Config::$info['update'] . '?action=get_metadata&slug=' . JSD_Config::$info['slug'], //Metadata URL.
+            JSD_Config::$info['file'], //Full path to the main plugin file.
+            JSD_Config::$info['slug'] //Plugin slug. Usually it's the same as the name of the directory.
         );
     }
 

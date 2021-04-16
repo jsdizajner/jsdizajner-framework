@@ -13,14 +13,12 @@ if (!defined('WPINC')) {
 }
 
 define('PLUGIN_DIR', plugin_dir_path(__FILE__));
-
 include(PLUGIN_DIR . 'includes/class.config.php');
-new JSD_Config;
 
 //Add a link to your settings page in your plugin
 function add_settings_plugin_page($links)
 {
-    $plugin = JSD_Config::$plugin;
+    $plugin = JSD_Config::$info;
     $settings_link = '<a href="admin.php?page='. $plugin['slug'] .'">Settings</a>';
     array_push($links, $settings_link);
     return $links;

@@ -18,7 +18,7 @@ class View
 
     public function framework_settings_add_plugin_page()
     {
-        $plugin = JSD_Config::$plugin;
+        $plugin = JSD_Config::$info;
         add_menu_page(
             'Framework Settings', // page_title
             'Framework Settings', // menu_title
