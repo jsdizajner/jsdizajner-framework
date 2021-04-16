@@ -18,11 +18,12 @@ class View
 
     public function framework_settings_add_plugin_page()
     {
+        $plugin = JSD_Config::$plugin;
         add_menu_page(
             'Framework Settings', // page_title
             'Framework Settings', // menu_title
             'manage_options', // capability
-            'theme_framework', // menu_slug
+            $plugin['slug'], // menu_slug
             array($this, 'framework_settings_create_admin_page'), // function
             'dashicons-media-code', // icon_url
             99 // position
@@ -102,6 +103,7 @@ class View
             isset($this->framework_settings_options['api_key_1']) ? esc_attr($this->framework_settings_options['api_key_1']) : ''
         );
     }
+
 }
 if (is_admin())
     $framework_settings = new View();

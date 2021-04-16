@@ -21,6 +21,7 @@ class Initialize {
 
         // Load setting functionality
         new Maintenance;
+        new UpdateAPI;
 
         // Add backwards compatibility for older versions for title tag feature.
         if (!function_exists('_wp_render_title_tag')) {
