@@ -12,7 +12,7 @@ class Template
         }
         return self::$instance;
     }
-    
+
     /**
      * This functions help to link template parts more easily
      * For better code writing and reading

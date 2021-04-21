@@ -41,7 +41,7 @@ class Render
 
         switch ($type) {
 
-                // Boolean Render Handler
+            // Boolean Render Handler
             case (false):
 
                 if ($functionName === $type) :
@@ -52,15 +52,18 @@ class Render
 
                 break;
 
-                // Empty String Handler
+            // Empty String Handler
             case ('empty'):
 
-                $message = $this->message;
-                return print_r($message[$id]);
+                if ( !isset($functionName) ) :
+                    return print_r($this->create_link() . ' <code> <span class="green">' . $id . '</span> ' . $message . '</code> <br>');
+                else :
+                    return $functionName;
+                endif;
 
                 break;
 
-                // Array Handler
+            // Array Handler
             case ('params'):
 
                 if (empty($params[0]) || empty($params[1])) :
@@ -71,7 +74,7 @@ class Render
 
                 break;
 
-                // Button Handler
+            // Button Handler
             case ('button'):
 
                 $args = $functionName;

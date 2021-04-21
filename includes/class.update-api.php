@@ -15,7 +15,7 @@ class UpdateAPI
 
     public function check_for_updates()
     {
-        require PLUGIN_DIR . 'plugin-update-checker/plugin-update-checker.php';
+        require JSD_Config::$info['checker'];
         $MyUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
             JSD_Config::$info['update'] . '?action=get_metadata&slug=' . JSD_Config::$info['slug'], //Metadata URL.
             JSD_Config::$info['file'], //Full path to the main plugin file.

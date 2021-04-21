@@ -13,7 +13,7 @@
 
      <?php
         $framework_settings_options = get_option('framework_settings_option_name');
-        var_dump($framework_settings_options);
-     
+        var_dump($framework_settings_options); 
+        var_dump(get_option('active_plugins')); 
      ?>
  </div>

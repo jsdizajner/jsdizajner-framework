@@ -15,9 +15,9 @@ define('THEME_PROTOCOL', is_ssl() ? 'https' : 'http');
 define('THEME_IS_RTL', is_rtl() ? true : false);
 define('THEME_TEXT_DOMAIN', 'jsdizajner');
 
- class JSD_Config
- {
-	
+class JSD_Config
+{
+
 	public static $info = [
 		'name'		=> 'JSDIZAJNER Framework',
 		'slug' 		=> 'jsdizajner-framework',
@@ -25,6 +25,7 @@ define('THEME_TEXT_DOMAIN', 'jsdizajner');
 		'docs'		=> 'https://documentation.jsdizajner.com/',
 		'update'	=> 'https://update.jsdizajner.com/',
 		'file'		=> PLUGIN_DIR . 'jsdizajner-framework.php',
+		'checker'	=> PLUGIN_DIR . 'includes/plugin-update-checker/plugin-update-checker.php',
 	];
 
 	public function __construct()
@@ -63,9 +64,9 @@ define('THEME_TEXT_DOMAIN', 'jsdizajner');
 		// Bootstrap Navwalker
 		require_once PLUGIN_DIR . 'includes/class.WP_Bootstrap_Navwalker.php';
 	}
-	
 
 
- }
+
+}
 
 new JSD_Config;
