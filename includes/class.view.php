@@ -19,14 +19,25 @@ class View
     {
         $plugin = JSD_Config::$info;
         add_menu_page(
-            'Framework Settings', // page_title
-            'Framework Settings', // menu_title
+            'Framework Status', // page_title
+            'Framework Status', // menu_title
             'manage_options', // capability
             $plugin['slug'], // menu_slug
             array($this, 'framework_settings_create_admin_page'), // function
-            'dashicons-media-code', // icon_url
+            'dashicons-info', // icon_url
             99 // position
         );
+    }
+
+    /**
+     * 
+     */
+
+    public static function create_html($filename)
+    {
+        $file = PLUGIN_DIR . 'views/'. $filename .'.php';
+        $output = file_get_contents($file);
+        return $output;
     }
 
     public function framework_settings_create_admin_page()
