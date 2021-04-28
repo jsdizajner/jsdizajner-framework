@@ -30,12 +30,15 @@ class View
     }
 
     /**
+     * Take all HTML from file into one STRING
      * 
+     * @param $filename Filename of Template in "views/" folder
+     * @return $output String of the template Contents
      */
 
     public static function create_html($filename)
     {
-        $file = PLUGIN_DIR . 'views/'. $filename .'.php';
+        $file = PLUGIN_DIR . 'views/' . $filename . '.php';
         $output = file_get_contents($file);
         return $output;
     }
