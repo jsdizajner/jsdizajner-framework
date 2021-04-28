@@ -15,6 +15,38 @@ if (!defined('WPINC')) {
 define('PLUGIN_DIR', plugin_dir_path(__FILE__));
 include(PLUGIN_DIR . 'includes/class.config.php');
 
+/**
+ * Framework Autoloader
+ */
+
+// Framework Config
+require_once PLUGIN_DIR . 'includes/class.config.php';
+
+// Plugin Settings
+require_once PLUGIN_DIR . 'includes/class.view.php';
+
+// Theme Functions Initialization
+require_once PLUGIN_DIR . 'includes/class.init.php';
+
+// Maintenance Feature
+require_once PLUGIN_DIR . 'includes/class.maintenance.php';
+
+// Custom Fields
+require_once PLUGIN_DIR . 'includes/class.custom-fields.php';
+
+// Update API
+require_once PLUGIN_DIR . 'includes/class.update-api.php';
+
+// Rendering Handler
+require_once PLUGIN_DIR . 'includes/class.render.php';
+
+// Template Helper Class
+require_once PLUGIN_DIR . 'includes/class.template.php';
+
+// Bootstrap Navwalker
+require_once PLUGIN_DIR . 'includes/class.WP_Bootstrap_Navwalker.php';
+
+
 //Add a link to your settings page in your plugin
 function add_settings_plugin_page($links)
 {

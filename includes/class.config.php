@@ -14,7 +14,6 @@ define('THEME_LOCALIZE', THEME_DIR . "/languages");
 define('THEME_PROTOCOL', is_ssl() ? 'https' : 'http');
 define('THEME_IS_RTL', is_rtl() ? true : false);
 define('THEME_TEXT_DOMAIN', 'jsdizajner');
-
 class JSD_Config
 {
 
@@ -39,36 +38,7 @@ class JSD_Config
 			define('DS', DIRECTORY_SEPARATOR);
 		}
 
-		/**
-		 * Framework Autoloader
-		 */
-
-		// Plugin Settings
-		require_once PLUGIN_DIR . 'includes/class.view.php';
-
-		// Theme Functions Initialization
-		require_once PLUGIN_DIR . 'includes/class.init.php';
-
-		// Maintenance Feature
-		require_once PLUGIN_DIR . 'includes/class.maintenance.php';
-
-		// Custom Fields
-		require_once PLUGIN_DIR . 'includes/class.custom-fields.php';
-
-		// Update API
-		require_once PLUGIN_DIR . 'includes/class.update-api.php';
-
-		// Rendering Handler
-		require_once PLUGIN_DIR . 'includes/class.render.php';
-
-		// Template Helper Class
-		require_once PLUGIN_DIR . 'includes/class.template.php';
-
-		// Bootstrap Navwalker
-		require_once PLUGIN_DIR . 'includes/class.WP_Bootstrap_Navwalker.php';
 	}
-
-
 
 }
 

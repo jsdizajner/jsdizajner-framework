@@ -3,19 +3,12 @@ defined('ABSPATH') || exit;
 
 class Maintenance
 {
-
-    /**
-     * Field of all options from Database
-     *
-     * @var [array]
-     */
-
-    private $option;
+    public $option;
 
     public function __construct()
     {
         // Set $options as array of data from settings
-        $this->option = CustomFields::get_field('crb_maintenance');
+        var_dump($this->option);
         $this->check_status();
     }
 
@@ -25,7 +18,7 @@ class Maintenance
 
     public function check_status()
     {
-        if ($this->option === true)
+        if ($this->option == true)
             add_action('get_header', array($this, 'maintenance'));
     }
 

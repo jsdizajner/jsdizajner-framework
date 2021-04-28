@@ -4,7 +4,8 @@ defined('ABSPATH') || exit;
 /**
  * Initial setup for this theme
  */
-class Initialize {
+class Initialize
+{
 
     protected static $instance = null;
 

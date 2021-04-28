@@ -18,6 +18,9 @@ class CustomFields
         // Init Setting Page
         add_action('carbon_fields_register_fields', [$this, 'setting_page']);
 
+        // Save Maintenance data to public property
+        add_action('carbon_fields_loaded', [$this, 'maintenance_data']);
+
     }
 
     public function setting_page()
@@ -58,6 +61,11 @@ class CustomFields
         // Construct the field
         $output = carbon_get_theme_option($name);
         return $output;
+    }
+
+    public function maintenance_data()
+    {
+        var_dump( carbon_get_theme_option('crb_maintenance') );
     }
 
 }
