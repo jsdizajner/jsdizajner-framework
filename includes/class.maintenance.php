@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-class Maintenance 
+class Maintenance
 {
 
     /**
@@ -10,14 +10,13 @@ class Maintenance
      * @var [array]
      */
 
-    private $options;
+    private $option;
 
     public function __construct()
     {
         // Set $options as array of data from settings
-        $this->options = get_option('framework_settings_option_name');
-        if ( class_exists('View') & array_key_exists('maintenance_mode_0', $this->options ) )
-            $this->check_status();
+        $this->option = CustomFields::get_field('crb_maintenance');
+        $this->check_status();
     }
 
     /**
@@ -26,7 +25,7 @@ class Maintenance
 
     public function check_status()
     {
-        if (array_key_exists('maintenance_mode_0', $this->options) === true)
+        if ($this->option === true)
             add_action('get_header', array($this, 'maintenance'));
     }
 
