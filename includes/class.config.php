@@ -52,6 +52,9 @@ class JSD_Config
 		// Maintenance Feature
 		require_once PLUGIN_DIR . 'includes/class.maintenance.php';
 
+		// Custom Fields
+		require_once PLUGIN_DIR . 'includes/class.custom-fields.php';
+
 		// Update API
 		require_once PLUGIN_DIR . 'includes/class.update-api.php';
 

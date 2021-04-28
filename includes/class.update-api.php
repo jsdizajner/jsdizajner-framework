@@ -38,3 +38,5 @@ class UpdateAPI
     }
 
 }
+
+new UpdateAPI;

@@ -47,3 +47,5 @@ class Maintenance
     }
 
 }
+
+new Maintenance;
