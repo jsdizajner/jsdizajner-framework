@@ -17,6 +17,6 @@
         var_dump($framework_settings_options); 
         var_dump(get_option('active_plugins'));
         var_dump(View::create_html('test')); 
-        gettype($test->option); 
+        var_dump(carbon_get_theme_option('crb_maintenance')); 
      ?>
  </div>

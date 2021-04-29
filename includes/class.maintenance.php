@@ -3,23 +3,34 @@ defined('ABSPATH') || exit;
 
 class Maintenance
 {
-    public $option;
 
     public function __construct()
     {
-        // Set $options as array of data from settings
-        var_dump($this->option);
-        $this->check_status();
+        // After Initial Load of Carbon Fields, do the Maintenance Check
+        add_action('carbon_fields_fields_registered', [$this, 'maintenance_data']);
+    }
+
+    /**
+     * Construct the Maintenance Data from Setting page
+     */
+
+    public function maintenance_data()
+    {
+        // Put the state into $data and run check_status() function
+        $data = carbon_get_theme_option('crb_maintenance');
+        $this->check_status($data);
+
     }
 
     /**
      * Check if the checkbox is set
      */
 
-    public function check_status()
+    public function check_status($data)
     {
-        if ($this->option == true)
+        if ($data == true) :
             add_action('get_header', array($this, 'maintenance'));
+        endif;
     }
 
     /**

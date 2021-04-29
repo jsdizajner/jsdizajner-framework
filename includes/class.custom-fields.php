@@ -7,8 +7,6 @@ use Carbon_Fields\Field;
 class CustomFields
 {
 
-    public $html = [];
-
     public function __construct()
     {
         // Require Carbon Fields
@@ -17,9 +15,6 @@ class CustomFields
 
         // Init Setting Page
         add_action('carbon_fields_register_fields', [$this, 'setting_page']);
-
-        // Save Maintenance data to public property
-        add_action('carbon_fields_loaded', [$this, 'maintenance_data']);
 
     }
 
@@ -47,25 +42,6 @@ class CustomFields
             ->set_option_value('yes'),
         ));
         
-    }
-
-    /**
-     * Accesing the field from Carbon Field Framework
-     * 
-     * @param $name Name of the custom field
-     * @return void
-     */
-
-    public static function get_field($name)
-    {
-        // Construct the field
-        $output = carbon_get_theme_option($name);
-        return $output;
-    }
-
-    public function maintenance_data()
-    {
-        var_dump( carbon_get_theme_option('crb_maintenance') );
     }
 
 }

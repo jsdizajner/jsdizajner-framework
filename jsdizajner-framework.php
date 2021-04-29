@@ -28,11 +28,11 @@ require_once PLUGIN_DIR . 'includes/class.view.php';
 // Theme Functions Initialization
 require_once PLUGIN_DIR . 'includes/class.init.php';
 
-// Maintenance Feature
-require_once PLUGIN_DIR . 'includes/class.maintenance.php';
-
 // Custom Fields
 require_once PLUGIN_DIR . 'includes/class.custom-fields.php';
+
+// Maintenance Feature
+require_once PLUGIN_DIR . 'includes/class.maintenance.php';
 
 // Update API
 require_once PLUGIN_DIR . 'includes/class.update-api.php';
