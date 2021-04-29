@@ -20,14 +20,14 @@ class CustomFields
 
     public function setting_page()
     {
-        $html = View::create_html('test');
+        $html = View::create_html('general');
         // Create The Page
         Container::make('theme_options', __('Framework Settings'))
         ->set_icon('dashicons-media-code')
         ->set_page_menu_position(80)
-        // ->set_page_parent('admin.php?page=jsdizajner-framework')
 
         ->add_fields( array (
+            Field::make('separator', 'crb_separator', __('Framework')),
             Field::make('html', 'crb_information_text')
             ->set_html($html)
         ))
@@ -40,6 +40,7 @@ class CustomFields
         ->add_tab(__('Debug'), array(
             Field::make('checkbox', 'crb_maintenance', __('Maintenance Mode'))
             ->set_option_value('yes'),
+            
         ));
         
     }

@@ -27,13 +27,18 @@ class UpdateAPI
     {
         register_rest_route('jsd/api', 'update', [
             'method' => 'GET',
-            'callback' => [$this, 'api_key'],
+            'callback' => [$this, 'data_json'],
         ]);
     }
 
-    public function api_key()
+    public function data_json()
     {
-        $options = get_option('framework_settings_option_name');
+        $options = [
+            'Site'     => home_url(),
+            'Key'      => carbon_get_theme_option('api_key'),
+            'Version'  => JSD_Config::$info['version'],
+            'Plugin'   => JSD_Config::$info['name'],
+        ];
         return $options;
     }
 
