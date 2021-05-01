@@ -13,7 +13,10 @@ if (!defined('WPINC')) {
 }
 
 define('PLUGIN_DIR', plugin_dir_path(__FILE__));
-include(PLUGIN_DIR . 'includes/class.config.php');
+
+// Require Carbon Fields
+require_once PLUGIN_DIR . 'vendor/autoload.php';
+add_action('after_setup_theme', ['Carbon_Fields\\Carbon_Fields', 'boot']);
 
 /**
  * Framework Autoloader
