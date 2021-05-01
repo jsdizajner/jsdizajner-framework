@@ -55,7 +55,7 @@ class CustomFields
         ->set_icon('dashicons-media-code')
         ->set_page_menu_position(81)
 
-        ->add_tab(__('General'), array(
+        ->add_tab(__('Custom Fees'), array(
 
             /**
              * Create Fields for Custom Cart Fees
@@ -63,7 +63,7 @@ class CustomFields
              */
 
             // Headline
-            Field::make('separator', 'crb_separator', __('Custom Fees')),
+            Field::make('separator', 'crb_separator', __('Settings for Custom fees')),
 
             // Repeater Field
             Field::make('complex', 'crb_custom_fee', __('List of Custom Fees'))
