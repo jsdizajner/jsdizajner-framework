@@ -18,6 +18,15 @@ define('PLUGIN_DIR', plugin_dir_path(__FILE__));
 require_once PLUGIN_DIR . 'vendor/autoload.php';
 add_action('after_setup_theme', ['Carbon_Fields\\Carbon_Fields', 'boot']);
 
+add_action('admin_head', 'jsd_admin_style');
+
+function jsd_admin_style() {
+    $url = get_option('siteurl') . '/wp-content/plugins/' . JSD_Config::$info['slug'] . JSD_Config::$info['style'];
+    echo '<!-- JSDIZAJNER ADMIN -->
+    <link rel="stylesheet" type="text/css" href="' . $url . '" />
+    <!-- /end JSDIZAJNER ADMIN -->';
+}
+
 /**
  * Framework Autoloader
  */
@@ -45,6 +54,9 @@ require_once PLUGIN_DIR . 'includes/class.render.php';
 
 // Template Helper Class
 require_once PLUGIN_DIR . 'includes/class.template.php';
+
+// WooCommerce Snippets
+require_once PLUGIN_DIR . 'includes/class.woo.php';
 
 // Bootstrap Navwalker
 require_once PLUGIN_DIR . 'includes/class.WP_Bootstrap_Navwalker.php';

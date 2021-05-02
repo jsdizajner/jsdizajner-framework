@@ -45,6 +45,14 @@ class CustomFields
 
     public function woocommerce_page()
     {
+
+        // Create list of available Payment Methods
+        $installed_payment_methods = WC()->payment_gateways->payment_gateways();
+        $methods = [];
+        foreach ($installed_payment_methods as $method) {
+            $methods[$method->id] = $method->title;
+        }
+
         $labels = [
             'plural_name' => __('Fee'),
             'singular_name' => __('Fees'),
@@ -52,7 +60,7 @@ class CustomFields
 
         // Create The Page
         Container::make('theme_options', __('Woo Snippets'))
-        ->set_icon('dashicons-media-code')
+        ->set_icon('dashicons-cart')
         ->set_page_menu_position(81)
 
         ->add_tab(__('Custom Fees'), array(
@@ -78,6 +86,8 @@ class CustomFields
                     'no' => __('No')
                 )),
                 Field::make('text', 'fee_tax', __('Tax class')),
+                Field::make('select', 'fee_rule', __('For which Payment Method should this fee aply?'))
+                ->add_options($methods),
             )),
 
 

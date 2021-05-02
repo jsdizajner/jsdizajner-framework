@@ -25,6 +25,7 @@ class JSD_Config
 		'update'	=> 'https://update.jsdizajner.com/',
 		'file'		=> PLUGIN_DIR . 'jsdizajner-framework.php',
 		'checker'	=> PLUGIN_DIR . 'includes/plugin-update-checker/plugin-update-checker.php',
+		'style'		=> '/assets/css/admin.css',
 	];
 
 	public function __construct()

@@ -17,6 +17,7 @@ class Initialize
     }
 
     public function init() {
+
         // Add theme supports.
         add_action('after_setup_theme', array($this, 'setup'));
 
@@ -30,7 +31,7 @@ class Initialize
         <title><?php wp_title('|', true, 'right'); ?></title>
     <?php
     }
-
+    
     /**
      * Sets up theme defaults and registers support for various WordPress features.
      *
@@ -40,6 +41,7 @@ class Initialize
      *
      * @access public
      */
+
     public function setup() {
 
         /**
