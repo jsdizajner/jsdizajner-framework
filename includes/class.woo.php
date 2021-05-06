@@ -100,8 +100,8 @@ class JSD_Woo
     public function custom_notification($order_id, $order)
     {
 
-        $heading = 'Cicina Heading On hold';
-        $subject = 'Cicina subject On hold';
+        $heading = 'Ďakujeme za Vašu objednávku #' . $order->get_order_number();
+        $subject = 'Ďakujeme za Vašu objednávku #' . $order->get_order_number();
 
         // Get WooCommerce email objects
         $mailer = WC()->mailer()->get_emails();
@@ -124,7 +124,7 @@ class JSD_Woo
         $order = wc_get_order($order_id);
 
         // Status without the "wc-" prefix
-        if ($order->payment_method == 'cod') {
+        if ($order->payment_method == 'tb_tatrapay' || $order->payment_method == 'tb_cardpay') {
             $order->update_status('payed-online');
         }
     }
