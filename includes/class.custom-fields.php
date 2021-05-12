@@ -18,7 +18,7 @@ class JSD_CustomFields
 
     public function setting_page()
     {
-        $html = View::create_html('general');
+        $html = JSD_View::create_html('general');
         // Create The Page
         Container::make('theme_options', __('Framework Settings'))
         ->set_icon('dashicons-media-code')

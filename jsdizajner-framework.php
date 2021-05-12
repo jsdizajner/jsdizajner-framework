@@ -38,7 +38,7 @@ require_once PLUGIN_DIR . 'includes/class.config.php';
 require_once PLUGIN_DIR . 'includes/class.view.php';
 
 // Theme Functions Initialization
-require_once PLUGIN_DIR . 'includes/class.init.php';
+// This happens in theme Framework Folder and theme functions.php
 
 // Custom Fields
 require_once PLUGIN_DIR . 'includes/class.custom-fields.php';
