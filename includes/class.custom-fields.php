@@ -4,7 +4,7 @@ defined('ABSPATH') || exit;
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
 
-class CustomFields
+class JSD_CustomFields
 {
 
     public function __construct()
@@ -23,7 +23,12 @@ class CustomFields
         Container::make('theme_options', __('Framework Settings'))
         ->set_icon('dashicons-media-code')
         ->set_page_menu_position(80)
-        
+
+        ->add_tab(__('Settings'), array(
+            Field::make('text', 'api_key', __('API Key'))
+            ->set_attribute('placeholder', 'Enter API Key here'),
+        ))
+
         ->add_tab(__('Analytics'), array(
 
             Field::make('separator', 'ga_separator', __('Google Analytics')),
@@ -38,12 +43,7 @@ class CustomFields
             Field::make('checkbox', 'fb_checker', __('Do you want to enable Facebook Pixel?'))
             ->set_option_value('yes')
 
-        ))
-
-        ->add_tab(__('Settings'), array(
-            Field::make('text', 'api_key', __('API Key'))
-            ->set_attribute('placeholder', 'Enter API Key here'),
-        ))
+        )) 
 
         ->add_tab(__('Debug'), array(
             Field::make('checkbox', 'crb_maintenance', __('Maintenance Mode'))
@@ -108,4 +108,4 @@ class CustomFields
 
 }
 
-new CustomFields;
+new JSD_CustomFields;

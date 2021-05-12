@@ -2,7 +2,7 @@
 defined('ABSPATH') || exit;
 
 
-class UpdateAPI
+class JSD_UpdateAPI
 {
 
     public $key;
@@ -44,4 +44,4 @@ class UpdateAPI
 
 }
 
-new UpdateAPI;
+new JSD_UpdateAPI;

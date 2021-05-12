@@ -2,7 +2,7 @@
 defined('ABSPATH') || exit;
 
 
-class Render
+class JSD_Render
 {
     private $docPage;
     private $docBook;

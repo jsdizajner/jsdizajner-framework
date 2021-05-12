@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-class Template
+class JSD_Template
 {
     protected static $instance = null;
 
@@ -29,7 +29,7 @@ class Template
         $renderTemplate = get_template_part($viewDestination, $viewName);
 
         // Render the result
-        $render = new Render();
+        $render = new JSD_Render();
         $render->handler($renderTemplate, false, [], '001', 'Cannot find template-part');
     }
 
@@ -48,7 +48,7 @@ class Template
         $output = 'https://via.placeholder.com/' . $resolution . '?text=' . $resolution;
 
         // Render the output
-        $render = new Render();
+        $render = new JSD_Render();
         $render->handler($output, 'params', [$width, $height], '002', 'Image cannot be rendered');
     }
 
@@ -83,7 +83,7 @@ class Template
         $args = wp_parse_args($args, $defaults);
 
         // Render the button and Error Check
-        $render = new Render();
+        $render = new JSD_Render();
         $render->handler($args, 'button', [], '003', 'Cannot render button.');
     }
 

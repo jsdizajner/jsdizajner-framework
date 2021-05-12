@@ -1,7 +1,7 @@
 <?php
 defined('ABSPATH') || exit;
 
-class Maintenance
+class JSD_Maintenance
 {
 
     public function __construct()
@@ -51,4 +51,4 @@ class Maintenance
 
 }
 
-new Maintenance;
+new JSD_Maintenance;
