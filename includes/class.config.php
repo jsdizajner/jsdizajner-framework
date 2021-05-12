@@ -14,6 +14,11 @@ define('THEME_LOCALIZE', THEME_DIR . "/languages");
 define('THEME_PROTOCOL', is_ssl() ? 'https' : 'http');
 define('THEME_IS_RTL', is_rtl() ? true : false);
 define('THEME_TEXT_DOMAIN', 'jsdizajner');
+define('PLUGIN_TEXT_DOMAIN', 'jsdizajner_framework');
+
+if (!defined('DS')) {
+	define('DS', DIRECTORY_SEPARATOR);
+}
 class JSD_Config
 {
 
@@ -27,19 +32,6 @@ class JSD_Config
 		'checker'	=> PLUGIN_DIR . 'includes/plugin-update-checker/plugin-update-checker.php',
 		'style'		=> '/assets/css/admin.css',
 	];
-
-	public function __construct()
-	{
-		$theme = wp_get_theme();
-		if (!empty($theme['Template'])) {
-			$theme = wp_get_theme($theme['Template']);
-		}
-
-		if (!defined('DS')) {
-			define('DS', DIRECTORY_SEPARATOR);
-		}
-
-	}
 
 }
 

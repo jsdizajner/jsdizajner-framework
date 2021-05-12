@@ -55,8 +55,11 @@ require_once PLUGIN_DIR . 'includes/class.render.php';
 // Template Helper Class
 require_once PLUGIN_DIR . 'includes/class.template.php';
 
+// Analytics
+require_once PLUGIN_DIR . 'includes/class.analytics.php';
+
 // WooCommerce Snippets
-require_once PLUGIN_DIR . 'includes/class.woo.php';
+//require_once PLUGIN_DIR . 'includes/class.woo.php';
 
 // Bootstrap Navwalker
 require_once PLUGIN_DIR . 'includes/class.WP_Bootstrap_Navwalker.php';
