@@ -18,7 +18,7 @@ class JSD_CustomFields
 
     public function setting_page()
     {
-        $html = JSD_View::create_html('general');
+        $html = JSD_Debug::create_html('general');
         // Create The Page
         Container::make('theme_options', __('Framework Settings'))
         ->set_icon('dashicons-media-code')
@@ -46,9 +46,12 @@ class JSD_CustomFields
         )) 
 
         ->add_tab(__('Debug'), array(
+            Field::make('separator', 'maintenance_separator', __('Maintenance')),
             Field::make('checkbox', 'crb_maintenance', __('Maintenance Mode'))
             ->set_option_value('yes'),
-            
+            Field::make('separator', 'debug_mode_separator', __('Debug mode')),
+            Field::make('checkbox', 'jsd_debug_mode', __('Enable Debug Mode'))
+            ->set_option_value('yes'),
         ));
         
     }

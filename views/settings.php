@@ -1,21 +1,13 @@
  <div class="wrap">
-     <h2>Framework Settings</h2>
-     <p></p>
-     <?php settings_errors(); ?>
-
-     <form method="post" action="options.php">
-         <?php
-            settings_fields('framework_settings_option_group');
-            do_settings_sections('framework-settings-admin');
-            submit_button();
-            ?>
-     </form>
+     <h2>Example Package</h2>
 
      <?php
-        $framework_settings_options = get_option('framework_settings_option_name');
-        $test = new Maintenance;
-        var_dump($framework_settings_options); 
+        $test = new JSD_Maintenance;
+        echo '<pre>';
         var_dump(get_option('active_plugins'));
+        echo '</pre>';
+
+        echo '<br>';
         var_dump(carbon_get_theme_option('crb_maintenance'));
         echo '<br>';
 

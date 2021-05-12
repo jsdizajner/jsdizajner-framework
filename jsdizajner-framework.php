@@ -35,7 +35,7 @@ function jsd_admin_style() {
 require_once PLUGIN_DIR . 'includes/class.config.php';
 
 // Plugin Settings
-require_once PLUGIN_DIR . 'includes/class.view.php';
+require_once PLUGIN_DIR . 'includes/class.debug.php';
 
 // Theme Functions Initialization
 // This happens in theme Framework Folder and theme functions.php
@@ -69,7 +69,7 @@ require_once PLUGIN_DIR . 'includes/class.WP_Bootstrap_Navwalker.php';
 function add_settings_plugin_page($links)
 {
     $plugin = JSD_Config::$info;
-    $settings_link = '<a href="admin.php?page='. $plugin['slug'] .'">Settings</a>';
+    $settings_link = '<a href="admin.php?page=crb_carbon_fields_container_framework_settings.php">Settings</a>';
     array_push($links, $settings_link);
     return $links;
 }
