@@ -29,6 +29,7 @@ function jsd_admin_style() {
 
 /**
  * Framework Autoloader
+ * All theme related settings happens in theme Framework Folder and theme functions.php
  */
 
 // Framework Config
@@ -36,9 +37,6 @@ require_once PLUGIN_DIR . 'includes/class.config.php';
 
 // Plugin Settings
 require_once PLUGIN_DIR . 'includes/class.debug.php';
-
-// Theme Functions Initialization
-// This happens in theme Framework Folder and theme functions.php
 
 // Custom Fields
 require_once PLUGIN_DIR . 'includes/class.custom-fields.php';

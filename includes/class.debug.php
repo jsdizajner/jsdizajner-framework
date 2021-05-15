@@ -27,14 +27,19 @@ class JSD_Debug
     {
         $plugin = JSD_Config::$info;
         add_menu_page(
-            'Example Package', // page_title
-            'Example Package', // menu_title
+            'Debug Mode', // page_title
+            'Debug Mode', // menu_title
             'manage_options', // capability
             $plugin['slug'], // menu_slug
             array($this, 'create_example_package_page'), // function
-            'dashicons-info', // icon_url
+            'dashicons-coffee', // icon_url
             99 // position
         );
+    }
+
+    public function create_example_package_page()
+    {
+        include(PLUGIN_DIR . 'views/settings.php');
     }
 
     /**
@@ -51,10 +56,15 @@ class JSD_Debug
         return $output;
     }
 
-    public function create_example_package_page()
+    public static function dump($var)
     {
-        include(PLUGIN_DIR . 'views/settings.php');
+        echo '<br>';
+        echo '<pre>';
+        var_dump($var);
+        echo '</pre>';
+        echo '<br>';
     }
+
 
 }
 

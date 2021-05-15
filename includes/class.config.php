@@ -23,14 +23,15 @@ class JSD_Config
 {
 
 	public static $info = [
-		'name'		=> 'JSDIZAJNER Framework',
-		'slug' 		=> 'jsdizajner-framework',
-		'version'	=> '1.0.0',
-		'docs'		=> 'https://documentation.jsdizajner.com/',
-		'update'	=> 'https://update.jsdizajner.com/',
-		'file'		=> PLUGIN_DIR . 'jsdizajner-framework.php',
-		'checker'	=> PLUGIN_DIR . 'includes/plugin-update-checker/plugin-update-checker.php',
-		'style'		=> '/assets/css/admin.css',
+		'name'				=> 'JSDIZAJNER Framework',
+		'slug' 				=> 'jsdizajner-framework',
+		'version'			=> '1.0.0',
+		'docs'				=> 'https://documentation.jsdizajner.com/',
+		'update'			=> 'https://update.jsdizajner.com/',
+		'file'				=> PLUGIN_DIR . 'jsdizajner-framework.php',
+		'checker'			=> PLUGIN_DIR . 'includes/plugin-update-checker/plugin-update-checker.php',
+		'style'				=> '/assets/css/admin.css',
+		'maintenance_path'	=> ABSPATH . 'maintenance/index.php',
 	];
 
 }

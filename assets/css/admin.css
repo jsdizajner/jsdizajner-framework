@@ -7,3 +7,12 @@
     color: #14173c !important;
     background: #b5c0fb !important;
 }
+
+/**
+ * Debug Page Styling
+ **/
+
+.debug__container {
+    background: white;
+    padding: 15px;
+}
