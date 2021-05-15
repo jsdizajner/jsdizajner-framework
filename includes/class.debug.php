@@ -19,8 +19,21 @@ class JSD_Debug
 
         if ($debug == true) {
             add_action('admin_menu', array($this, 'framework_settings_add_plugin_page'));
-            add_action('admin_init', array($this, 'framework_settings_page_init'));
+            add_action('admin_bar_menu', [$this, 'admin_bar_shortcut'], 100);
         }
+    }
+
+    public function admin_bar_shortcut($admin_bar)
+    {
+        $admin_bar->add_menu(array(
+            'id'    => 'jsd-debug-page',
+            'title'  => '<span class="ab-icon"></span>' . __('Debug Page'),
+            'href'  => '/wp-admin/admin.php?page=jsdizajner-framework',
+            'meta'  => array(
+                'title' => __('Debug Page'),
+                'target'   => '_self',
+            ),
+        ));
     }
 
     public function framework_settings_add_plugin_page()

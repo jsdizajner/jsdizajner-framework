@@ -16,3 +16,12 @@
     background: white;
     padding: 15px;
 }
+
+/**
+ * Add an Coffee Icon to Admin bar next to Debug Page Item
+ */
+
+#wpadminbar #wp-admin-bar-jsd-debug-page .ab-icon:before {
+    content: "\f16f";
+    top: 3px;
+}

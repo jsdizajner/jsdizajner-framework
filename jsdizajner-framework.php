@@ -18,6 +18,7 @@ define('PLUGIN_DIR', plugin_dir_path(__FILE__));
 require_once PLUGIN_DIR . 'vendor/autoload.php';
 add_action('after_setup_theme', ['Carbon_Fields\\Carbon_Fields', 'boot']);
 
+
 add_action('admin_head', 'jsd_admin_style');
 
 function jsd_admin_style() {
@@ -26,6 +27,16 @@ function jsd_admin_style() {
     <link rel="stylesheet" type="text/css" href="' . $url . '" />
     <!-- /end JSDIZAJNER ADMIN -->';
 }
+
+add_action('wp_enqueue_scripts', function () {
+    wp_enqueue_style('jsd-plugin-frontend', '/wp-content/plugins/jsdizajner-framework/assets/css/page.css', [], time());
+});
+
+// add_action( 'wp_enqueue_scripts', 'plugin_css' );
+// function plugin_css() 
+// {
+//     wp_enqueue_style('plugin-css', '/wp-content/plugins/jsdizajner-framework/assets/front-end.css');
+// }
 
 /**
  * Framework Autoloader
