@@ -19,13 +19,19 @@ define('PLUGIN_TEXT_DOMAIN', 'jsdizajner_framework');
 if (!defined('DS')) {
 	define('DS', DIRECTORY_SEPARATOR);
 }
+
+if (!function_exists('get_plugin_data')) {
+	require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+}
+
 class JSD_Config
 {
-
+	
 	public static $info = [
-		'name'				=> 'JSDIZAJNER Framework',
+		'name'      		=> JSD_PLUGIN_DATA['Name'],
+		'author'    		=> JSD_PLUGIN_DATA['Author'],
 		'slug' 				=> 'jsdizajner-framework',
-		'version'			=> '1.0.0',
+		'version'  		 	=> JSD_PLUGIN_DATA['Version'],
 		'docs'				=> 'https://documentation.jsdizajner.com/',
 		'update'			=> 'https://update.jsdizajner.com/',
 		'file'				=> JSD_PLUGIN_DIR . 'jsdizajner-framework.php',

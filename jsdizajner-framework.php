@@ -12,7 +12,12 @@ if (!defined('WPINC')) {
     die;
 }
 
-define('JSD_PLUGIN_DIR', JSD_PLUGIN_DIR_path(__FILE__));
+if (!function_exists('get_plugin_data')) {
+    require_once(ABSPATH . 'wp-admin/includes/plugin.php');
+}
+
+define('JSD_PLUGIN_DATA', get_plugin_data(__FILE__));
+define('JSD_PLUGIN_DIR', plugin_dir_path(__FILE__));
 
 // Require Carbon Fields
 require_once JSD_PLUGIN_DIR . 'vendor/autoload.php';

@@ -93,6 +93,21 @@
 
             JSD_Debug::dump(file_exists($string));
             JSD_Debug::dump($maintenance_url);
+            JSD_Debug::dump(JSD_PLUGIN_DATA);
+
+            $currentData = JSD_PLUGIN_DATA;
+            echo JSD_PLUGIN_DATA['Version'];
+
+            $dynamicData = [
+                'version'   =>    JSD_PLUGIN_DATA['Version'],
+                'author'    =>     JSD_PLUGIN_DATA['Author'],
+                'name'      =>     JSD_PLUGIN_DATA['Name'],
+            ];
+
+            $updateData = array_merge($dynamicData, JSD_Config::$info);
+
+            JSD_Debug::dump($dynamicData);
+            JSD_Debug::dump(JSD_Config::$info);
             ?>
      </div>
  </div>
