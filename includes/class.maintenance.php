@@ -92,7 +92,7 @@ class JSD_Maintenance
             header("Retry-After: 3600");
 
             // load maintenance mode template
-            include_once PLUGIN_DIR . 'views/maintenance.php';
+            include_once JSD_PLUGIN_DIR . 'views/maintenance.php';
             ob_flush();
             exit();
         }

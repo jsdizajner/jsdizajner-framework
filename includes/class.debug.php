@@ -52,7 +52,7 @@ class JSD_Debug
 
     public function create_example_package_page()
     {
-        include(PLUGIN_DIR . 'views/settings.php');
+        include(JSD_PLUGIN_DIR . 'views/settings.php');
     }
 
     /**
@@ -64,7 +64,7 @@ class JSD_Debug
 
     public static function create_html($filename)
     {
-        $file = PLUGIN_DIR . 'views/' . $filename . '.php';
+        $file = JSD_PLUGIN_DIR . 'views/' . $filename . '.php';
         $output = file_get_contents($file);
         return $output;
     }

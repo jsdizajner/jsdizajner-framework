@@ -128,9 +128,9 @@ class JSD_Render
 
                     // Support for Wrapper Class
                     if (!empty($wrapper_class)) {
-                        include(PLUGIN_DIR . 'assets/components/wrapper-button.php');
+                        include(JSD_PLUGIN_DIR . 'assets/components/wrapper-button.php');
                     } else {
-                        include(PLUGIN_DIR . 'assets/components/classic-button.php');
+                        include(JSD_PLUGIN_DIR . 'assets/components/classic-button.php');
                     }
                 }
 

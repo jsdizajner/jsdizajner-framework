@@ -12,10 +12,10 @@ if (!defined('WPINC')) {
     die;
 }
 
-define('PLUGIN_DIR', plugin_dir_path(__FILE__));
+define('JSD_PLUGIN_DIR', JSD_PLUGIN_DIR_path(__FILE__));
 
 // Require Carbon Fields
-require_once PLUGIN_DIR . 'vendor/autoload.php';
+require_once JSD_PLUGIN_DIR . 'vendor/autoload.php';
 add_action('after_setup_theme', ['Carbon_Fields\\Carbon_Fields', 'boot']);
 
 
@@ -44,34 +44,34 @@ add_action('wp_enqueue_scripts', function () {
  */
 
 // Framework Config
-require_once PLUGIN_DIR . 'includes/class.config.php';
+require_once JSD_PLUGIN_DIR . 'includes/class.config.php';
 
 // Plugin Settings
-require_once PLUGIN_DIR . 'includes/class.debug.php';
+require_once JSD_PLUGIN_DIR . 'includes/class.debug.php';
 
 // Custom Fields
-require_once PLUGIN_DIR . 'includes/class.custom-fields.php';
+require_once JSD_PLUGIN_DIR . 'includes/class.custom-fields.php';
 
 // Maintenance Feature
-require_once PLUGIN_DIR . 'includes/class.maintenance.php';
+require_once JSD_PLUGIN_DIR . 'includes/class.maintenance.php';
 
 // Update API
-require_once PLUGIN_DIR . 'includes/class.update-api.php';
+require_once JSD_PLUGIN_DIR . 'includes/class.update-api.php';
 
 // Rendering Handler
-require_once PLUGIN_DIR . 'includes/class.render.php';
+require_once JSD_PLUGIN_DIR . 'includes/class.render.php';
 
 // Template Helper Class
-require_once PLUGIN_DIR . 'includes/class.template.php';
+require_once JSD_PLUGIN_DIR . 'includes/class.template.php';
 
 // Analytics
-require_once PLUGIN_DIR . 'includes/class.analytics.php';
+require_once JSD_PLUGIN_DIR . 'includes/class.analytics.php';
 
 // WooCommerce Snippets
-//require_once PLUGIN_DIR . 'includes/class.woo.php';
+//require_once JSD_PLUGIN_DIR . 'includes/class.woo.php';
 
 // Bootstrap Navwalker
-require_once PLUGIN_DIR . 'includes/class.WP_Bootstrap_Navwalker.php';
+require_once JSD_PLUGIN_DIR . 'includes/class.WP_Bootstrap_Navwalker.php';
 
 
 //Add a link to your settings page in your plugin
