@@ -1,11 +1,13 @@
 <?php
-/*
-Plugin Name: JSDIZAJNER Framework
-Plugin URI: https://jsdizajner.com
-Description: Core Theme Framework for JSDIZAJNER Themes
-Version: 1.0.0
-Author: Július Sipos
-*/
+
+/**
+ * Plugin Name: JSDIZAJNER Framework
+ * Plugin URI: https://jsdizajner.com
+ * Description: Core Theme Framework for JSDIZAJNER Themes
+ * Version: 1.0.0
+ * Author: Július Sipos
+ */
+
 
 // If this file is called directly, abort.
 if (!defined('WPINC')) {
