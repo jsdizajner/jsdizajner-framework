@@ -27,9 +27,6 @@ class JSD_UpdateAPI
 
         //Set the branch that contains the stable release.
         $MyUpdateChecker->setBranch('master');
-
-        //Optional: If you're using a private repository, specify the access token like this:
-        $MyUpdateChecker->setAuthentication('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');
     }
 
     public function create_endpoint()
