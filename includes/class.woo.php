@@ -7,24 +7,27 @@ class JSD_Woo
 
     public function __construct()
     {
+        if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
 
-        // Custom Fee Assigner
-        add_action('woocommerce_cart_calculate_fees', [$this, 'assign_fee']);
+            // Load all Fields
+            add_action('carbon_fields_register_fields', [JSD_CustomFields, 'woocommerce_page']);
 
-        // Refresh Page after Gateaway change
-        add_action('woocommerce_review_order_before_payment', [$this, 'calculate_fee']);
+            // Custom Fee Assigner
+            add_action('woocommerce_cart_calculate_fees', [$this, 'assign_fee']);
 
-        // Register Order Status
-        add_action('init', [$this, 'register_custom_order_status']);
-        add_filter('wc_order_statuses', [$this, 'add_custom_to_order_statuses']);
+            // Refresh Page after Gateaway change
+            add_action('woocommerce_review_order_before_payment', [$this, 'calculate_fee']);
 
-        // Send notification when Order Status is payed-online
-        add_action('woocommerce_order_status_payed-online', [$this, 'custom_notification'], 20, 2);
+            // Register Order Status
+            add_action('init', [$this, 'register_custom_order_status']);
+            add_filter('wc_order_statuses', [$this, 'add_custom_to_order_statuses']);
 
-        // Automatically assing Order Status for certian online payment methods
-        add_action('woocommerce_thankyou', [$this, 'change_order_status']);
+            // Send notification when Order Status is payed-online
+            add_action('woocommerce_order_status_payed-online', [$this, 'custom_notification'], 20, 2);
 
-
+            // Automatically assing Order Status for certian online payment methods
+            add_action('woocommerce_thankyou', [$this, 'change_order_status']);
+        }
     }
 
     public function assign_fee()

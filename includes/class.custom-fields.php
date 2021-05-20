@@ -12,7 +12,6 @@ class JSD_CustomFields
 
         // Init Setting Page
         add_action('carbon_fields_register_fields', [$this, 'setting_page']);
-       // add_action('carbon_fields_register_fields', [$this, 'woocommerce_page']);
 
     }
 

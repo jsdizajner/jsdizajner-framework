@@ -108,6 +108,18 @@
 
             JSD_Debug::dump($dynamicData);
             JSD_Debug::dump(JSD_Config::$info);
+
+            // Scan all Files in /includes/ folder
+            $classes = scandir(JSD_PLUGIN_DIR . '/includes/');
+            $filter = array_filter($classes, function ($file) {
+                if (strpos($file, 'class.') !== false) {
+                    return $file;
+                }
+            });
+
+            JSD_Debug::dump($filter);
+
+            new JSD_Woo;
             ?>
      </div>
  </div>
