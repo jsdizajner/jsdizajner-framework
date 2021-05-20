@@ -7,10 +7,8 @@ class JSD_Woo
 
     public function __construct()
     {
-        if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
-
-            // Load all Fields
-            add_action('carbon_fields_register_fields', [JSD_CustomFields, 'woocommerce_page']);
+        if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))))
+        {
 
             // Custom Fee Assigner
             add_action('woocommerce_cart_calculate_fees', [$this, 'assign_fee']);

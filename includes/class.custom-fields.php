@@ -13,6 +13,12 @@ class JSD_CustomFields
         // Init Setting Page
         add_action('carbon_fields_register_fields', [$this, 'setting_page']);
 
+        // Load WooCommerce Features
+        if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) 
+        {
+            add_action('carbon_fields_register_fields', [$this, 'woocommerce_page']);
+        }
+
     }
 
     public function setting_page()
@@ -56,57 +62,57 @@ class JSD_CustomFields
     }
 
     
-    // public function woocommerce_page()
-    // {
+    public function woocommerce_page()
+    {
 
-    //     // Create list of available Payment Methods
-    //     $installed_payment_methods = WC()->payment_gateways->payment_gateways();
-    //     $methods = [];
-    //     foreach ($installed_payment_methods as $method) {
-    //         $methods[$method->id] = $method->title;
-    //     }
+        // Create list of available Payment Methods
+        $installed_payment_methods = WC()->payment_gateways->payment_gateways();
+        $methods = [];
+        foreach ($installed_payment_methods as $method) {
+            $methods[$method->id] = $method->title;
+        }
 
-    //     $labels = [
-    //         'plural_name' => __('Fee'),
-    //         'singular_name' => __('Fees'),
-    //     ];
+        $labels = [
+            'plural_name' => __('Fee'),
+            'singular_name' => __('Fees'),
+        ];
 
-    //     // Create The Page
-    //     Container::make('theme_options', __('Woo Snippets'))
-    //     ->set_icon('dashicons-cart')
-    //     ->set_page_menu_position(81)
+        // Create The Page
+        Container::make('theme_options', __('Woo Snippets'))
+        ->set_icon('dashicons-cart')
+        ->set_page_menu_position(81)
 
-    //     ->add_tab(__('Custom Fees'), array(
+        ->add_tab(__('Custom Fees'), array(
 
-    //         /**
-    //          * Create Fields for Custom Cart Fees
-    //          * @snippet Custom Fees
-    //          */
+            /**
+             * Create Fields for Custom Cart Fees
+             * @snippet Custom Fees
+             */
 
-    //         // Headline
-    //         Field::make('separator', 'crb_separator', __('Settings for Custom fees')),
+            // Headline
+            Field::make('separator', 'crb_separator', __('Settings for Custom fees')),
 
-    //         // Repeater Field
-    //         Field::make('complex', 'crb_custom_fee', __('List of Custom Fees'))
-    //         ->setup_labels($labels)
-    //         ->add_fields(array(
-    //             Field::make('text', 'fee_title', __('Description')),
-    //             Field::make('text', 'fee_amount', __('Amount - in Euros'))
-    //                 ->set_attribute('type', 'number'),
-    //             Field::make('select', 'fee_taxable', __('Is this fee taxable?'))
-    //             ->add_options(array(
-    //                 'yes' => __('Yes'),
-    //                 'no' => __('No')
-    //             )),
-    //             Field::make('text', 'fee_tax', __('Tax class')),
-    //             Field::make('select', 'fee_rule', __('For which Payment Method should this fee aply?'))
-    //             ->add_options($methods),
-    //         )),
+            // Repeater Field
+            Field::make('complex', 'crb_custom_fee', __('List of Custom Fees'))
+            ->setup_labels($labels)
+            ->add_fields(array(
+                Field::make('text', 'fee_title', __('Description')),
+                Field::make('text', 'fee_amount', __('Amount - in Euros'))
+                    ->set_attribute('type', 'number'),
+                Field::make('select', 'fee_taxable', __('Is this fee taxable?'))
+                ->add_options(array(
+                    'yes' => __('Yes'),
+                    'no' => __('No')
+                )),
+                Field::make('text', 'fee_tax', __('Tax class')),
+                Field::make('select', 'fee_rule', __('For which Payment Method should this fee aply?'))
+                ->add_options($methods),
+            )),
 
 
-    //     ));
+        ));
      
-    // }
+    }
 
 }
 
