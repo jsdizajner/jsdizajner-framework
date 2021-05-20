@@ -15,39 +15,10 @@
             var_dump(carbon_get_theme_option('crb_maintenance'));
             echo '<br>';
 
-            // $installed_payment_methods = WC()->payment_gateways->payment_gateways();
-            // $methods = [];
-            // foreach ($installed_payment_methods as $method) {
-            //     $methods[$method->title] = $method->id;
-            // }
-            // echo '<pre>';
-            // print_r($methods);
-            // echo '</pre>';
-
-            // echo '<br>';
-
-            // echo '<pre>';
-            // var_dump( carbon_get_theme_option('crb_custom_fee'));
-            // echo '</pre>';
-
-            // echo '<br>';
-
-            // echo '<pre>';
-            // $fees = carbon_get_theme_option('crb_custom_fee');
-            // $output = [];
-            // for ($i = 0; $i < count($fees); $i++) {
-            //     $fee[$i] = $fees[$i];
-            // };
-
-            // foreach ($fee as $testing) {
-            //     $output['title'] = $testing['fee_title'];
-            //     $output['rule'] = $testing['fee_rule'];
-            //     $output['amount'] = $testing['fee_amount'];
-            //     $output['taxable'] = $testing['fee_taxable'];
-            //     $output['tax'] = $testing['fee_tax'];
-            // }
-            // var_dump($output);
-            // echo '</pre>';
+            echo 'WOOOO';
+            $fees = carbon_get_theme_option('crb_custom_fee');
+            JSD_Debug::dump($fees);
+            echo '//WOOOO';
 
 
             $ga = [
@@ -78,21 +49,6 @@
 
             JSD_Debug::dump(get_home_path());
 
-            // Path to Maintenance Template
-            $string = ABSPATH . 'maintenance/index.php';
-            $maintenance_url = JSD_Config::$info['maintenance_path'];
-
-            if (!file_exists($string)) {
-                $createIndex = fopen($maintenance_url, 'w');
-                fwrite($createIndex, 'SHITY TEST');
-                fclose($createIndex);
-
-            } else {
-                echo $string;
-            }
-
-            JSD_Debug::dump(file_exists($string));
-            JSD_Debug::dump($maintenance_url);
             JSD_Debug::dump(JSD_PLUGIN_DATA);
 
             $currentData = JSD_PLUGIN_DATA;

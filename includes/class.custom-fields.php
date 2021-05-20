@@ -9,7 +9,6 @@ class JSD_CustomFields
 
     public function __construct()
     {
-
         // Init Setting Page
         add_action('carbon_fields_register_fields', [$this, 'setting_page']);
 
@@ -18,7 +17,6 @@ class JSD_CustomFields
         {
             add_action('carbon_fields_register_fields', [$this, 'woocommerce_page']);
         }
-
     }
 
     public function setting_page()
@@ -99,11 +97,8 @@ class JSD_CustomFields
                 Field::make('text', 'fee_title', __('Description')),
                 Field::make('text', 'fee_amount', __('Amount - in Euros'))
                     ->set_attribute('type', 'number'),
-                Field::make('select', 'fee_taxable', __('Is this fee taxable?'))
-                ->add_options(array(
-                    'yes' => __('Yes'),
-                    'no' => __('No')
-                )),
+                Field::make('checkbox', 'fee_taxable', __('Is this fee taxable?'))
+                ->set_option_value('yes'),
                 Field::make('text', 'fee_tax', __('Tax class')),
                 Field::make('select', 'fee_rule', __('For which Payment Method should this fee aply?'))
                 ->add_options($methods),

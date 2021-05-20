@@ -9,7 +9,6 @@ class JSD_Woo
     {
         if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))))
         {
-
             // Custom Fee Assigner
             add_action('woocommerce_cart_calculate_fees', [$this, 'assign_fee']);
 
@@ -28,30 +27,36 @@ class JSD_Woo
         }
     }
 
+    /**
+     * Get all options from the plugin
+     * Loop through option and check if there is a match with current payment option
+     *
+     * @return void
+     */
+
     public function assign_fee()
     {
-        $chosen_gateway = WC()->session->get('chosen_payment_method');
+        // Get All fees from the Plugin
         $fees = carbon_get_theme_option('crb_custom_fee');
-        $output = [];
-        foreach ($fees as $fee) {
-            $output['title'] = $fee['fee_title'];
-            $output['rule'] = $fee['fee_rule'];
-            $output['amount'] = $fee['fee_amount'];
-            $output['taxable'] = $fee['fee_taxable'];
-            $output['tax'] = $fee['fee_tax'];
-        }
 
-            
-        if ($output['taxable'] = 'yes') {
-            return $taxable = true;
-        } else {
-            return $taxable = false;
+        // Loop through all of them
+        foreach ($fees as $fee)
+        {
+            // Get Current Payment Method
+            $chosen_gateway = WC()->session->get('chosen_payment_method');
+
+            // Check if there is a match in Payment Method and a Rule set in the Plugin
+            if ($chosen_gateway == $fee['fee_rule'])
+            {
+                // Assign Fee in Checkout Process
+                WC()->cart->add_fee($fee['fee_title'], str_replace(',', '.', $fee['fee_amount']), $fee['fee_taxable'], $fee['fee_tax']);
+            }
         }
-        if ($chosen_gateway == $output['rule']) {
-            WC()->cart->add_fee($output['title'], /** str_replace(',', '.', $output['amount']) **/ 15, $taxable, $output['tax']);
-        }
-        
     }
+
+    /**
+     * When there is a Custom Fee Assigned restart Checkout
+     */
 
     public function calculate_fee()
     {
