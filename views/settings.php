@@ -75,7 +75,6 @@
 
             JSD_Debug::dump($filter);
 
-            new JSD_Woo;
             ?>
      </div>
  </div>
