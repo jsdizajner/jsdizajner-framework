@@ -27,6 +27,7 @@ class JSD_UpdateAPI
 
         //Set the branch that contains the stable release.
         $MyUpdateChecker->setBranch('master');
+        $MyUpdateChecker->getVcsApi()->enableReleaseAssets();
     }
 
     public function create_endpoint()
