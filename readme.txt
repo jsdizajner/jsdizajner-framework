@@ -13,13 +13,7 @@ By updating your plugin you might brake your site! Please before update do a Bac
 
 == Changelog ==
 
-= 1.2.0 =
-* Blah
-
-= 1.0.1 =
-* Testing Support for GitHub Releases
-
-= 1.0.0 =
+= 1.0 =
 
 **General**
 * API Key
