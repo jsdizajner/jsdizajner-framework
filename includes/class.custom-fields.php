@@ -93,6 +93,7 @@ class JSD_CustomFields
             // Repeater Field
             Field::make('complex', 'crb_custom_fee', __('List of Custom Fees'))
             ->setup_labels($labels)
+            ->set_collapsed(true)
             ->add_fields(array(
                 Field::make('text', 'fee_title', __('Description')),
                 Field::make('text', 'fee_amount', __('Amount - in Euros'))
@@ -102,7 +103,12 @@ class JSD_CustomFields
                 Field::make('text', 'fee_tax', __('Tax class')),
                 Field::make('select', 'fee_rule', __('For which Payment Method should this fee aply?'))
                 ->add_options($methods),
-            )),
+            ))
+            ->set_header_template('
+            <% if (fee_title) { %>
+                <%- fee_title %> (<%- fee_amount %>) 
+            <% } %>
+            '),
 
 
         ));
