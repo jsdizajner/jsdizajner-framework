@@ -5,9 +5,13 @@ Tested up to: 5.7.2
 Requires PHP: 7.0
 
 Core Framework for JSDIZAJNER Themes and Plugins
+If you are planning to develop using this Plugin use Latest JSDIZAJNER Start Theme
+-- most of the times this plugin is installed with your custom developed theme
+
+** Please do not deactivate this plugin **
 
 == Changelog ==
-= 1.0 =
+= 1.0.0 =
 
 **General**
 * API Key
@@ -24,6 +28,7 @@ Core Framework for JSDIZAJNER Themes and Plugins
 * Template Helper Class
 * Update API
 * Support for Bootstrap 4 NavWalker
+ 
 
 == Upgrade Notice ==
 This update should be done by Administrator, or if you were asked by the Administrator to update your plugin.
