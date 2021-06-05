@@ -56,6 +56,15 @@ class JSD_CustomFields
             Field::make('checkbox', 'jsd_debug_mode', __('Enable Debug Mode'))
             ->set_option_value('yes'),
         ));
+
+        /**
+         * Extend Nav Menu Custiomization
+         */
+
+        Container::make('nav_menu_item', 'Custom Class')
+        ->add_fields(array(
+            Field::make('text', 'custom_nav_css', __('Custom Class')),
+        ));
         
     }
 
