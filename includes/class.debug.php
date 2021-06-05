@@ -40,8 +40,8 @@ class JSD_Debug
     {
         $plugin = JSD_Config::$info;
         add_menu_page(
-            'Debug Mode', // page_title
-            'Debug Mode', // menu_title
+            'Debug Page', // page_title
+            'Debug Page', // menu_title
             'manage_options', // capability
             $plugin['slug'], // menu_slug
             array($this, 'create_example_package_page'), // function
