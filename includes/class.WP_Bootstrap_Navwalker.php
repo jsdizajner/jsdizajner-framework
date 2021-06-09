@@ -233,7 +233,20 @@ if (!class_exists('WP_Bootstrap_Navwalker')) :
 				if ($depth > 0) {
 					$atts['class'] = 'dropdown-item';
 				} else {
-					$atts['class'] = 'nav-link ' . $args->a_class;
+					
+					/**
+					 * Added Custom Class Option using Carbon Fields Framework
+					 * Settings are available in carbon_fields.php
+					 * 
+					 * @docs https://docs.carbonfields.net/learn/containers/nav-menu-item.html
+					 */
+
+					$customClass = carbon_get_nav_menu_item_meta($item->ID, 'custom_nav_css');
+					if (!empty($customClass)) {
+						$atts['class'] = $customClass;
+					} else {
+						$atts['class'] = 'nav-link ' . $args->a_class;
+					}
 				}
 			}
 

@@ -39,13 +39,7 @@ class JSD_CustomFields
             ->set_attribute('placeholder', 'Insert your Google Analytics ID'),
             Field::make('checkbox', 'ga_checker', __('Do you want to enable Google Analytisc?'))
             ->set_option_value('yes'),
-
-            // Field::make('separator', 'fb_separator', __('Facebook Pixel')),
-            // Field::make('text', 'fb_key', __('Facebook Pixel'))
-            // ->set_attribute('placeholder', 'Insert your Facebook Pixel'),
-            // Field::make('checkbox', 'fb_checker', __('Do you want to enable Facebook Pixel?'))
-            // ->set_option_value('yes')
-
+            
         )) 
 
         ->add_tab(__('Debug'), array(
@@ -55,6 +49,15 @@ class JSD_CustomFields
             Field::make('separator', 'debug_mode_separator', __('Debug mode')),
             Field::make('checkbox', 'jsd_debug_mode', __('Enable Debug Mode'))
             ->set_option_value('yes'),
+        ));
+
+        /**
+         * Extend Nav Menu Custiomization
+         */
+
+        Container::make('nav_menu_item', 'Custom Class')
+        ->add_fields(array(
+            Field::make('text', 'custom_nav_css', __('Custom Class')),
         ));
         
     }

@@ -68,7 +68,7 @@ defined('ABSPATH') || exit;
             <div class="col-md-8 card">
                 <h1 class="mb-4 mt-5">Error 503</h1>
                 <p class="info mt-2 mb-5">
-                    <?php echo __('Momentálne na stránke prebieha údržba. Ospravedlňujeme sa za zvniknuté problémy. O chvíľu sme späť!', PLUGIN_TEXT_DOMAIN) ?>
+                    <?php echo __('Momentálne na stránke prebieha údržba. Ospravedlňujeme sa za vzniknuté problémy. O chvíľu sme späť!', PLUGIN_TEXT_DOMAIN) ?>
                 </p>
 
                 <div class="mt-5 mb-2 d-flex justify-content-between">
