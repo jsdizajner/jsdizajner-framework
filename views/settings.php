@@ -75,6 +75,9 @@
 
             JSD_Debug::dump($filter);
 
+            $taxRate = WC_Tax::_get_tax_rate(1);
+            JSD_Debug::dump($taxRate['tax_rate']);
+
             ?>
      </div>
  </div>

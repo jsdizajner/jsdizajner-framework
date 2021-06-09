@@ -37,7 +37,6 @@ class JSD_Config
 		'file'				=> JSD_PLUGIN_DIR . 'jsdizajner-framework.php',
 		'checker'			=> JSD_PLUGIN_DIR . 'includes/plugin-update-checker/plugin-update-checker.php',
 		'style'				=> '/assets/css/admin.css',
-		'maintenance_path'	=> ABSPATH . 'maintenance/index.php',
 	];
 
 }
