@@ -6,7 +6,15 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit84f49904abd1fbeec8565c415d2612ce
 {
+    public static $files = array (
+        '290dd4ba42f11019134caca05dbefe3f' => __DIR__ . '/..' . '/teamtnt/tntsearch/helper/helpers.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'TeamTNT\\TNTSearch\\' => 18,
+        ),
         'C' => 
         array (
             'Carbon_Fields\\' => 14,
@@ -14,6 +22,10 @@ class ComposerStaticInit84f49904abd1fbeec8565c415d2612ce
     );
 
     public static $prefixDirsPsr4 = array (
+        'TeamTNT\\TNTSearch\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/teamtnt/tntsearch/src',
+        ),
         'Carbon_Fields\\' => 
         array (
             0 => __DIR__ . '/..' . '/htmlburger/carbon-fields/core',
