@@ -10,7 +10,7 @@ class JSD_Woo
         {
 
             /**
-             * Load all code snippets
+             * Load all Snippets
              */
 
             $this->snippet_autoloader();
@@ -31,40 +31,36 @@ class JSD_Woo
     {
         $snippetsFolder = scandir(JSD_PLUGIN_SNIPPETS_DIR);
         $snippets = array_diff($snippetsFolder, array('.', '..'));
-        $i = 0;
+
+        // Require All Files from Snippets Folder and Init Classes
         foreach ($snippets as $snippet) {
             require_once JSD_PLUGIN_SNIPPETS_DIR . $snippet . '/' . $snippet . '.php';
 
             // AutoLoad Classes
             if (strpos($snippet, '-') ) {
-                $newString = str_replace('-', ' ', $snippet);
-                $newArray[$i] = $newString;
-                $i++;
+
+                /**
+                 * Create Snippet Class Name:
+                 * custom-fees -> custom fees -> Custom Fees -> CustomFees -> JSD_CustomFees
+                 */
+
+                $snippetClass = str_replace('-', ' ', $snippet);
+                $snippetClass = ucwords($snippetClass);
+                $snippetClass = str_replace(' ', '', $snippetClass);
+                $snippetClass = 'JSD_' . $snippetClass;
+                new $snippetClass;
+
             } else {
-                $class = 'JSD_' . ucwords($snippet);
-                new $class;
+
+                /**
+                 * Create Snippet Class Name
+                 */
+
+                $snippetClass = 'JSD_' . ucwords($snippet);
+                new $snippetClass;
+
             }
         }
-
-        $i = 0;
-        foreach ($newArray as $a) {
-            $up = ucwords($a);
-            $newArray[$i] = $up;
-            $i++;
-        }
-
-        $i = 0;
-        foreach ($newArray as $a) {
-            $newString = str_replace(' ', '', $a);
-            $newArray[$i] = $newString;
-            $i++;
-        }
-
-        foreach ($newArray as $a) {
-            $class = 'JSD_' . $a;
-            new $class;
-        }
-
     }
 
     // Register new status
