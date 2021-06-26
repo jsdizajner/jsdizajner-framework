@@ -8,11 +8,7 @@ class JSD_Woo
     {
         if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))))
         {
-
-            /**
-             * Load all Snippets
-             */
-
+            // Load All Snippets
             $this->snippet_autoloader();
 
             // Register Order Status
@@ -36,7 +32,7 @@ class JSD_Woo
         foreach ($snippets as $snippet) {
             require_once JSD_PLUGIN_SNIPPETS_DIR . $snippet . '/' . $snippet . '.php';
 
-            // AutoLoad Classes
+            // Autoload Classes
             if (strpos($snippet, '-') ) {
 
                 /**
