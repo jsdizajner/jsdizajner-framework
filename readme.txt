@@ -2,7 +2,7 @@
 Contributors: @jsdizajner
 Requires at least: 5.0.0
 Tested up to: 5.7.2
-Requires PHP: 7.0
+Requires PHP: 7.2
 
 Core Framework for JSDIZAJNER Themes and Plugins
 If you are planning to develop using this Plugin use Latest JSDIZAJNER Start Theme
@@ -11,6 +11,10 @@ If you are planning to develop using this Plugin use Latest JSDIZAJNER Start The
 ** Please do not deactivate this plugin **
 
 == Changelog ==
+= 1.0.1 =
+* Plugin Template
+* Snippet Autoloader
+
 = 1.0.0 =
 
 **General**
