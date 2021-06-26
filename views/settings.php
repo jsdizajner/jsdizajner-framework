@@ -66,12 +66,11 @@
             JSD_Debug::dump(JSD_Config::$info);
 
 
-            $insta = new JSD_PriceList;
-            $lolec = $insta->price_list_web_data();
-
             JSD_Debug::dump($lolec);
-
-            
+            echo 'Here';
+            $classes = scandir(JSD_PLUGIN_SNIPPETS_DIR);
+            $files = array_diff($classes, array('.', '..'));
+            JSD_Debug::dump($files);
             ?>
      </div>
  </div>

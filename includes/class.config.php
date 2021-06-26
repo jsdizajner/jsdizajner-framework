@@ -15,6 +15,7 @@ define('THEME_PROTOCOL', is_ssl() ? 'https' : 'http');
 define('THEME_IS_RTL', is_rtl() ? true : false);
 define('THEME_TEXT_DOMAIN', 'jsdizajner');
 define('PLUGIN_TEXT_DOMAIN', 'jsdizajner_framework');
+define('JSD_PLUGIN_SNIPPETS_DIR', JSD_PLUGIN_DIR . '/includes/snippets/');
 
 if (!defined('DS')) {
 	define('DS', DIRECTORY_SEPARATOR);

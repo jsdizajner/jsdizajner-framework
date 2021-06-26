@@ -66,24 +66,12 @@ class JSD_CustomFields
     public function woocommerce_page()
     {
 
-        // Create list of available Payment Methods
-        $installed_payment_methods = WC()->payment_gateways->payment_gateways();
-        $methods = [];
-        foreach ($installed_payment_methods as $method) {
-            $methods[$method->id] = $method->title;
-        }
-
-        $labels = [
-            'plural_name' => __('Fee'),
-            'singular_name' => __('Fees'),
-        ];
-
         // Create The Page
-        Container::make('theme_options', __('Woo Snippets'))
-        ->set_icon('dashicons-cart')
-        ->set_page_menu_position(81)
+        Container::make('theme_options', __('WooCommerce Snippets'))
+        ->set_icon('dashicons-feedback')
+        ->set_page_menu_position(999)
 
-        ->add_tab(__('Custom Fees'), array(
+        ->add_tab(__('General Settings'), array(
 
             /**
              * Create Fields for Custom Cart Fees
@@ -91,28 +79,10 @@ class JSD_CustomFields
              */
 
             // Headline
-            Field::make('separator', 'crb_separator', __('Settings for Custom fees')),
+            Field::make('separator', 'crb_separator_general', __('Enable Snippets')),
 
-            // Repeater Field
-            Field::make('complex', 'crb_custom_fee', __('List of Custom Fees'))
-            ->setup_labels($labels)
-            ->set_collapsed(true)
-            ->add_fields(array(
-                Field::make('text', 'fee_title', __('Description')),
-                Field::make('text', 'fee_amount', __('Amount - in Euros'))
-                    ->set_attribute('type', 'number'),
-                Field::make('checkbox', 'fee_taxable', __('Is this fee taxable?'))
-                ->set_option_value('yes'),
-                Field::make('text', 'fee_tax', __('Tax class')),
-                Field::make('select', 'fee_rule', __('For which Payment Method should this fee aply?'))
-                ->add_options($methods),
-            ))
-            ->set_header_template('
-            <% if (fee_title) { %>
-                <%- fee_title %> (<%- fee_amount %>) 
-            <% } %>
-            '),
-
+            Field::make('checkbox', 'enable_custom_fees', __('Custom Fees'))
+            ->set_option_value('yes'),
 
         ));
      

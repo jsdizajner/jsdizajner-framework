@@ -4,16 +4,16 @@ defined('ABSPATH') || exit;
 
 class JSD_Woo
 {
-
     public function __construct()
     {
         if (in_array('woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins'))))
         {
-            // Custom Fee Assigner
-            add_action('woocommerce_cart_calculate_fees', [$this, 'assign_fee']);
 
-            // Refresh Page after Gateaway change
-            add_action('woocommerce_review_order_before_payment', [$this, 'calculate_fee']);
+            /**
+             * Load all code snippets
+             */
+
+            $this->snippet_autoloader();
 
             // Register Order Status
             add_action('init', [$this, 'register_custom_order_status']);
@@ -27,48 +27,44 @@ class JSD_Woo
         }
     }
 
-    /**
-     * Get all options from the plugin
-     * Loop through option and check if there is a match with current payment option
-     *
-     * @return void
-     */
-
-    public function assign_fee()
+    public function snippet_autoloader()
     {
-        // Get All fees from the Plugin
-        $fees = carbon_get_theme_option('crb_custom_fee');
+        $snippetsFolder = scandir(JSD_PLUGIN_SNIPPETS_DIR);
+        $snippets = array_diff($snippetsFolder, array('.', '..'));
+        $i = 0;
+        foreach ($snippets as $snippet) {
+            require_once JSD_PLUGIN_SNIPPETS_DIR . $snippet . '/' . $snippet . '.php';
 
-        // Loop through all of them
-        foreach ($fees as $fee)
-        {
-            // Get Current Payment Method
-            $chosen_gateway = WC()->session->get('chosen_payment_method');
-
-            // Check if there is a match in Payment Method and a Rule set in the Plugin
-            if ($chosen_gateway == $fee['fee_rule'])
-            {
-                // Assign Fee in Checkout Process
-                WC()->cart->add_fee($fee['fee_title'], str_replace(',', '.', $fee['fee_amount']), $fee['fee_taxable'], $fee['fee_tax']);
+            // AutoLoad Classes
+            if (strpos($snippet, '-') ) {
+                $newString = str_replace('-', ' ', $snippet);
+                $newArray[$i] = $newString;
+                $i++;
+            } else {
+                $class = 'JSD_' . ucwords($snippet);
+                new $class;
             }
         }
-    }
 
-    /**
-     * When there is a Custom Fee Assigned restart Checkout
-     */
+        $i = 0;
+        foreach ($newArray as $a) {
+            $up = ucwords($a);
+            $newArray[$i] = $up;
+            $i++;
+        }
 
-    public function calculate_fee()
-    {
-    ?>
-        <script type="text/javascript">
-            (function($) {
-                $('form.checkout').on('change', 'input[name^="payment_method"]', function() {
-                    $('body').trigger('update_checkout');
-                });
-            })(jQuery);
-        </script>
-    <?php
+        $i = 0;
+        foreach ($newArray as $a) {
+            $newString = str_replace(' ', '', $a);
+            $newArray[$i] = $newString;
+            $i++;
+        }
+
+        foreach ($newArray as $a) {
+            $class = 'JSD_' . $a;
+            new $class;
+        }
+
     }
 
     // Register new status
