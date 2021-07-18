@@ -71,6 +71,14 @@
             $classes = scandir(JSD_PLUGIN_SNIPPETS_DIR);
             $files = array_diff($classes, array('.', '..'));
             JSD_Debug::dump($files);
+
+
+
+            echo '<hr>';
+
+            $xml = simplexml_load_file(JSD_PLUGIN_DIR . 'xml/test.xml');
+            JSD_Debug::dump($xml);
+
             ?>
      </div>
  </div>

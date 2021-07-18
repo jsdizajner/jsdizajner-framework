@@ -1,4 +1,6 @@
-
+html, body {
+    overflow-x: visible;
+}
 /**
  * Add an Coffee Icon to Admin bar next to Debug Page Item
  */

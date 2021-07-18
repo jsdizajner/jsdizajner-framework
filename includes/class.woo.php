@@ -38,7 +38,7 @@ class JSD_Woo
                 /**
                  * Create Snippet Class Name:
                  * custom-fees -> custom fees -> Custom Fees -> CustomFees -> JSD_CustomFees
-                 */
+                */
 
                 $snippetClass = str_replace('-', ' ', $snippet);
                 $snippetClass = ucwords($snippetClass);
