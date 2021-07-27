@@ -76,9 +76,10 @@
 
             echo '<hr>';
 
-            $xml = simplexml_load_file(JSD_PLUGIN_DIR . 'xml/test.xml');
-            JSD_Debug::dump($xml);
+            // $xml = simplexml_load_file(JSD_PLUGIN_DIR . 'xml/test.xml');
+            // JSD_Debug::dump($xml);
 
             ?>
+
      </div>
  </div>
